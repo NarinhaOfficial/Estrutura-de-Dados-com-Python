@@ -8,6 +8,7 @@ while n!=0:
 	print('6 - Peça o raio de um círculo, calcule e mostre sua área')
 	print('7 - Calcule a área de um quadrado e mostre o dobro dessa área')
 	print('8 - Quanto você ganha por hora e o número de horas trabalhadas no mês. Calcule e mostre o total do seu salário no referido mês')
+	print('0 - Encerrar o programa')
 	n = int(input(''))
 	if n==1:
 		print('Alô mundo')
@@ -34,8 +35,13 @@ while n!=0:
 		q = float(input("Informe a área do quadrado para saber o seu dobro: "))
 		print(f'A área é: {q**2} e seu dobro é: {(q**2)*2}')
 	elif n==8:
-		
+		valor = float(input('Quanto você ganha por hora? '))
+		numero = int(input('Quantas horas você trabalha? '))
+		print(f'Seu total é de R$ {valor*numero}')
 	elif n==0:
 		print('Programa encerrado!')
 		break
+	else:
+		print('Entrada inválida!')
+		
 	
