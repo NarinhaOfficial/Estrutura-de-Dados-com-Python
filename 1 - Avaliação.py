@@ -15,6 +15,7 @@ while n!=0:
 	print('11. Altere o programa anterior, intercalando 3 vetores de 10 elementos cada.')
 	print('12. Foram anotadas as idades e alturas de 30 alunos. Faça um Programa que determine quantos 	alunos com mais de 13 anos possuem altura inferior à média de altura desses alunos.')
 	print('13. Faça um programa que receba a temperatura média de cada mês do ano e armazene-as em uma 	lista. Após isto, calcule a média anual das temperaturas e mostre todas as temperaturas acima da média anual, e em que mês elas ocorreram (mostrar o mês por extenso: 1 – Janeiro, 2 – Fevereiro, . . . ).')
+	print('14 - O programa deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".')
 	
 	n = int(input(' '))
 
@@ -85,7 +86,6 @@ while n!=0:
 			produto*=n
 			numeros.append(n)
 		print(f'Soma: {soma}\nMultiplicação: {produto}\n{numeros}')
-
 	elif n==8:
 		idade = []
 		altura = []
@@ -177,4 +177,65 @@ while n!=0:
 		for x in junto:
 			if x[1] > media:
 				print(x[0], x[1])
-		
+	elif n==14:
+		contador = 0
+		a = 0; b = 0; c = 0; d = 0; e = 0
+		while a != 1 or a !=2:
+			print("Telefonou para a vítima?")
+			print('1 - Sim')
+			print('2 - Não')
+			a = int(input(' '))
+			if a==1:
+				contador+=1
+				break
+			elif a==2:
+				break
+		while b != 1 or b !=2:
+			print("Esteve no local do crime?")
+			print('1 - Sim')
+			print('2 - Não')
+			b = int(input(' '))
+			if b==1:
+				contador+=1
+				break
+			elif b==2:
+				break
+		while c != 1 or c !=2:
+			print("Mora perto da vítima?")
+			print('1 - Sim')
+			print('2 - Não')
+			c = int(input(' '))
+			if c==1:
+				contador+=1
+				break
+			elif c==2:
+				break
+		while d != 1 or d !=2:
+			print("Devia para a vítima?")
+			print('1 - Sim')
+			print('2 - Não')
+			d = int(input(' '))
+			if d==1:
+				contador+=1
+				break
+			elif d==2:
+				break
+		while e != 1 or e !=2:
+			print("Já trabalhou com a vítima?")
+			print('1 - Sim')
+			print('2 - Não')
+			e = int(input(' '))
+			if e==1:
+				contador+=1
+				break
+			elif e==2:
+				break
+		print(contador)
+		if contador == 2:
+			print('Você é uma pessoa suspeita!')
+		elif (contador>2) and (contador<5):
+			print('Você é um Cúmplice!')
+		elif contador==5:
+			print('Você é o Assassino!')
+		else:
+			print('Que bom! Você é inocente😅')
