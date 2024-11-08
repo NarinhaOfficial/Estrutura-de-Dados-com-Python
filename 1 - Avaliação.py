@@ -12,6 +12,9 @@ while n!=0:
 	print('8. Faça um Programa que peça a idade e a altura de 5 pessoas, armazene cada informação no seu respectivo vetor. Imprima a idade e a altura na ordem inversa a ordem lida.')
 	print('9. Faça um Programa que leia um vetor A com 10 números inteiros, calcule e mostre a soma dos  quadrados dos elementos do vetor.')
 	print('10. Faça um Programa que leia dois vetores com 10 elementos cada. Gere um terceiro vetor de 20	elementos, cujos valores deverão ser compostos pelos elementos intercalados dos dois outros vetores.')
+	print('11. Altere o programa anterior, intercalando 3 vetores de 10 elementos cada.')
+	print('12. Foram anotadas as idades e alturas de 30 alunos. Faça um Programa que determine quantos 	alunos com mais de 13 anos possuem altura inferior à média de altura desses alunos.')
+	print('13. Faça um programa que receba a temperatura média de cada mês do ano e armazene-as em uma 	lista. Após isto, calcule a média anual das temperaturas e mostre todas as temperaturas acima da média anual, e em que mês elas ocorreram (mostrar o mês por extenso: 1 – Janeiro, 2 – Fevereiro, . . . ).')
 	
 	n = int(input(' '))
 
@@ -118,3 +121,60 @@ while n!=0:
 			junto.append(acumulador)
 		junto.reverse()
 		print(junto)
+	elif n==11:
+		par = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+		impar = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+		terceiro = ['-','-','-','-','-','-','-','-','-','-']
+		acumulador = 0
+		junto = []
+		while par != []:
+			acumulador = impar.pop()
+			junto.append(acumulador)
+			acumulador = terceiro.pop()
+			junto.append(acumulador)
+			acumulador = par.pop()
+			junto.append(acumulador)
+		junto.reverse()
+		print(junto)
+	elif n==12:
+		lista = [
+				    [10, 1.40], [11, 1.42], [12, 1.44], [13, 1.46], [14, 1.48],
+				    [15, 1.50], [16, 1.52], [17, 1.54], [18, 1.56], [10, 1.41],
+				    [11, 1.43], [12, 1.45], [13, 1.47], [14, 1.49], [15, 1.51],
+				    [16, 1.53], [17, 1.55], [18, 1.57], [14, 1.42], [11, 1.44],
+				    [12, 1.46], [13, 1.48], [14, 1.50], [15, 1.52], [16, 1.54],
+				    [17, 1.56], [18, 1.58], [10, 1.43], [11, 1.45], [12, 1.47]
+				]
+		soma = 0
+		media = 0
+		qtd = 0
+		for x in lista:
+			if isinstance(x[1], float):
+				soma += x[1]
+		media = soma/30
+		for x in lista:
+			if x[0] > 13:
+				if x[1] < media:
+					qtd+=1
+		print(f'Lista dos 30 alunos: {lista}')
+		print(f'A média de altura é : {media:.2f}m')
+		print(f'A quantidade de alunos com altura inferior a média é: {qtd}')
+		time.sleep(5)
+	elif n==13:
+		soma = 0
+		media = 0
+		junto = []
+		m = ['1 - Janeiro', '2 - Fevereiro', '3 - Março', '4 - Abril', '5 - Maio', '6 - Junho', '7 - Julho', '8 - Agosto', '9 - Setembro', '10 - Outubro', '11 - Novembro', '12 - Dezembro']
+		for x in m:
+			auxiliar = []
+			t = int(input(f'Informe a temperatura do {x}º mês'))
+			soma+=t
+			auxiliar.append(x)
+			auxiliar.append(t)
+			junto.append(auxiliar)
+		media = soma/12
+		print(f'A média é {media}\nE as temperaturas acima da média anual são:')
+		for x in junto:
+			if x[1] > media:
+				print(x[0], x[1])
+		
