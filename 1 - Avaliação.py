@@ -21,13 +21,13 @@ while n!=0:
 
 	if n==1:
 		for x in range(5):
-			v = int(input('Informe um número: '))
+			v = int(input(f'Informe o {x+1}º número: '))
 			listas.append(v)
 		print(listas)
 		time.sleep(3)
 	elif n==2:
 		for x in range(10):
-			v = float(input('Informe um número: '))
+			v = float(input(f'Informe o {x+1}º número: '))
 			listas.append(v)
 		listas.reverse()
 		print(listas)
@@ -47,11 +47,12 @@ while n!=0:
 		consoantes = []
 		for x in range(10):
 			v = input('Digite um caracter: ')
-			if v not in vogais:
+			if v not in vogais and not v.isdigit():
 				i+=1
 				consoantes.append(v)
 		print(i)
 		print(consoantes)
+		time.sleep(3)
 	elif n==5:
 		par = []
 		impar = []
@@ -65,11 +66,11 @@ while n!=0:
 		print(f'Números ímpares:\n {impar}')
 	elif n==6:
 		listas = []
-		for alunos in range(3):
+		for alunos in range(10):
 			soma = 0
 			media = 0
 			for notas in range(4):
-				n = float(input(f'Informe a {notas+1}ª nota: '))
+				n = float(input(f'Informe a {notas+1}ª nota do {alunos+1}º aluno: '))
 				soma += n
 			media = soma/4
 			if media >= 7:
@@ -167,16 +168,20 @@ while n!=0:
 		m = ['1 - Janeiro', '2 - Fevereiro', '3 - Março', '4 - Abril', '5 - Maio', '6 - Junho', '7 - Julho', '8 - Agosto', '9 - Setembro', '10 - Outubro', '11 - Novembro', '12 - Dezembro']
 		for x in m:
 			auxiliar = []
-			t = int(input(f'Informe a temperatura do {x}º mês'))
+			t = int(input(f'Informe a temperatura do mês de {x}: '))
 			soma+=t
 			auxiliar.append(x)
 			auxiliar.append(t)
 			junto.append(auxiliar)
 		media = soma/12
-		print(f'A média é {media}\nE as temperaturas acima da média anual são:')
+		print(f'A média é {media:.0f}')
 		for x in junto:
 			if x[1] > media:
-				print(x[0], x[1])
+				print('E as temperaturas acima da média anual são: ')
+				break
+		for x in junto:
+			if x[1] > media:
+				print(f'{x[0]}, com {x[1]}°')
 	elif n==14:
 		contador = 0
 		a = 0; b = 0; c = 0; d = 0; e = 0
